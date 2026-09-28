@@ -1,0 +1,8 @@
+
+Lezione 28.09.2026 (2 ore)
+di VALERIANO AIELLO - lunedì, 28 settembre 2026, 20:51
+Numero di risposte: 0
+
+Riepilogo della lezione precedente. Espansione decimale e densità dei numeri razionali nei reali, modulo e sue proprietà (tra cui la disuguaglianza triangolare). Troncamento e arrotondamento alla k-esima cifra. Insiemi limitati superiormente/inferiormente, insiemi limitati. Estremo inferiore, estremo superiore, massimo, minimo di un insieme. Struttura di spazio vettoriale per R^n. Modulo/distanza in R^n
+
+Riferimenti: pp. 1-20 del file "01 Insiemi numerici e funzioni elementari"

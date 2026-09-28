@@ -1,0 +1,10 @@
+
+Lezione 24.09.2026 (5 ore)
+di VALERIANO AIELLO - giovedì, 24 settembre 2026, 20:50
+Numero di risposte: 0
+
+Vi ricordo la lezione prevista per lunedì 29/09, ore 11.00/13.00 in Aula 4 in via de Lollis.
+
+Introduzione al corso e spiegazione delle regole degli esoneri e degli esami . Elementi di insiemistica e logica. Insiemi numerici: i numeri naturali, interi, razionali, e reali (con rappresentazione grafica sulla retta). Nozione di ordine per numeri reali. La definizione di ordine tra numeri reali e proprietà delle disuguaglianze.  Esempi di dimostrazione per assurdo (il prodotto di dispari è dispari, l'irrazionalità della radice quadrata di 2). Dimostrazione per induzione (la formula per la somma dei primi n numeri naturali, formula dei primi n quadrati, formula di Bernoulli). Valore assoluto. Prodotto cartesiano e rappresentazione grafica di R^2. Gli intervalli.
+
+Riferimenti: pp. 1-15 del file "01 Insiemi numerici e funzioni elementari" (alcuni argomenti di queste pagine non sono stati trattati). [Canuto Tabacco] Sezioni 1.1, 1.2.
