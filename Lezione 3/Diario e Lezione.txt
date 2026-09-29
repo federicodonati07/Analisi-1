@@ -1,0 +1,8 @@
+
+Lezione 29.09.2026 (2 ore)
+di VALERIANO AIELLO - martedì, 29 settembre 2026, 12:58
+Numero di risposte: 0
+
+Riepilogo della lezione precedente. Ancora sul valore assoluto: ||x|-|y||≤|x-y|. Definizione di funzione. Dominio, codominio, immagine, preimmagine, grafico di una funzione. Estensione/restrizione di una funzione. Funzioni pari/dispari. Funzioni iniettive. Funzioni suriettive. Funzioni invertibili.
+
+Riferimenti: pp. 24-41 del file "01 Insiemi numerici e funzioni elementari" (ci sono varie parti non ancora viste a lezione). Per la definizione di estremo superiore, vedere [Canuto Tabacco], pagina 17.
