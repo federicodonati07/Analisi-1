@@ -84,4 +84,5 @@ show_progress 100 "Cloud deployment completed!"
 echo -e "\n\n${GREEN}🚀 Done! Repository is now fully up to date.${NC}\n"
 
 # Keep context window visible
-sleep 3
+sleep 1
+exit
