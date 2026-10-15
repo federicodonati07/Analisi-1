@@ -1,61 +1,87 @@
 #!/bin/bash
 
-# Si sposta automaticamente nella cartella in cui si trova questo file
+# Move directly to the script directory
 cd "$(dirname "$0")"
 
-# Funzione interna per disegnare la barra di avanzamento grafica
-mostra_barra() {
-    local percentuale=$1
-    local messaggio=$2
-    local larghezza=40
-    local completati=$((percentuale * larghezza / 100))
-    local restanti=$((larghezza - completati))
+# Visual Style Setup (ANSI Color Codes)
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+CLEAR_LINE='\033[K'
+
+# Dynamic Progress Bar Function
+show_progress() {
+    local percent=$1
+    local msg=$2
+    local width=30
+    local completed=$((percent * width / 100))
+    local remaining=$((width - completed))
     
-    # Costruisce la stringa visiva della barra
-    local barra=""
-    for ((i=0; i<completati; i++)); do barra="${barra}█"; done
-    for ((i=0; i<restanti; i++)); do barra="${barra}░"; done
+    # Choose color based on progress phase
+    local bar_color=$CYAN
+    if [ "$percent" -eq 100 ]; then
+        bar_color=$GREEN
+    fi
     
-    # Cancella la riga precedente e stampa la barra aggiornata
-    printf "\r[%s] %d%% - %s" "$barra" "$percentuale" "$messaggio"
+    # Build visual blocks
+    local filled_bar=""
+    local empty_bar=""
+    for ((i=0; i<completed; i++)); do filled_bar="${filled_bar}█"; done
+    for ((i=0; i<remaining; i++)); do empty_bar="${empty_bar}░"; done
+    
+    # Print clean colored output line
+    printf "\r${bar_color}[%s%s] %d%%${NC} ➔ %s${CLEAR_LINE}" "$filled_bar" "$empty_bar" "$percent" "$msg"
 }
 
+# Clear terminal screen for a premium look
+clear
+echo -e "${BLUE}==================================================${NC}"
+echo -e "${BLUE}             AUTOMATED REPO DEPLOYMENT            ${NC}"
+echo -e "${BLUE}==================================================${NC}\n"
+
 # ─────────────────────────────────────────────────────────────
-# FASE 1: Rilevamento e indicizzazione dei nuovi materiali
+# PHASE 1: Indexing materials
 # ─────────────────────────────────────────────────────────────
-mostra_barra 10 "Analisi della cartella in corso..."
-sleep 0.5
+show_progress 15 "Scanning workspace changes..."
+sleep 0.4
 git add .
-mostra_barra 35 "Materiali indicizzati con successo!"
-sleep 0.5
+show_progress 35 "All changes staged."
+sleep 0.4
 
 # ─────────────────────────────────────────────────────────────
-# FASE 2: Preparazione del pacchetto Git (Commit)
+# PHASE 2: Git Commit Generation
 # ─────────────────────────────────────────────────────────────
-mostra_barra 50 "Creazione del pacchetto di studio..."
-DATA_ORA=$(date "+%Y-%m-%d %H:%M:%S")
-MESSAGGIO="Aggiornamento materiali studio ($DATA_ORA)"
-# Esegue il commit reindirizzando gli output testuali per non rompere la barra grafica
-git commit -m "$MESSAGGIO" > /dev/null 2>&1
-mostra_barra 70 "Pacchetto pronto per l'invio!"
-sleep 0.5
+show_progress 55 "Generating commit package..."
+
+# Date formatted as Day Month(Letters) Year - Hour:Minute (e.g., 15 Oct 2026 - 15:30)
+CURRENT_DATE=$(date "+%d %b %Y - %H:%M")
+COMMIT_MSG="Auto Sync: $CURRENT_DATE"
+
+# Run git commit silently
+git commit -m "$COMMIT_MSG" > /dev/null 2>&1
+show_progress 75 "Commit package sealed."
+sleep 0.4
 
 # ─────────────────────────────────────────────────────────────
-# FASE 3: Trasferimento dei file su GitHub (Push)
+# PHASE 3: GitHub Deployment
 # ─────────────────────────────────────────────────────────────
-mostra_barra 85 "Connessione a GitHub e invio dati..."
+show_progress 90 "Opening upstream tunnel to GitHub..."
 git push > /dev/null 2>&1
 
-# Controllo di sicurezza se il push fallisce (es. mancanza di internet)
+# Network failure check
 if [ $? -ne 0 ]; then
-    printf "\n❌ [ERRORE] Il caricamento su GitHub è fallito! Controlla la connessione.\n"
-    read -p "Premi Invio per chiudere..."
+    printf "\n\n${RED}❌ [ERROR] Deployment failed.${NC}\n"
+    echo -e "${YELLOW}Please check your network connection or GitHub permissions.${NC}"
+    read -p "Press [Enter] to dismiss..."
     exit 1
 fi
 
-# Completamento dell'operazione
-mostra_barra 100 "Tutto caricato con successo!"
-printf "\n\n✅ Fatto! Ora puoi andare sulla tua App di Claude e premere il tasto Sync.\n"
+# Success completion state
+show_progress 100 "Cloud deployment completed!"
+echo -e "\n\n${GREEN}🚀 Done! Repository is now fully up to date.${NC}\n"
 
-# Mantiene aperta la schermata per 4 secondi per farti leggere il successo
+# Keep context window visible
 sleep 3
