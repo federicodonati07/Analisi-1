@@ -1,0 +1,6 @@
+Lezione 20.10.2026 (2 ore)
+by VALERIANO AIELLO - Tuesday, 20 October 2026, 10:47 AM
+Number of replies: 0
+Riepilogo della lezione precedente. Teorema sulla regolarità delle successioni monotone. Definizione del numero di Nepero/Eulero tramite successioni monotone. Limite della successione sqrt[n](x) per n che tende a infinito. Forme indeterminate e non (vedere file in allegato).
+
+Riferimenti: dal file “02 Successioni di numeri reali”.
