@@ -1,0 +1,8 @@
+Lezione 5.11.2026
+by VALERIANO AIELLO - Thursday, 5 November 2026, 11:17 AM
+Number of replies: 0
+Formula di Stirling. Notazione Omega grande, O grande. 
+
+Limiti per le funzioni e proprietà dei limiti. Esempi vari (polinomi, seno, coseno). Limite sen/x per x che tende a 0. Altri limiti notevoli.
+
+Riferimenti: 03 Funzioni continue. 
